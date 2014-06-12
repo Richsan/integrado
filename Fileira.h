@@ -9,6 +9,7 @@ class Fileira{
 	private:
 		char idFileira;
 		const int qtdeAssentos;
+		int assentosDisponiveis;
 		Assento **assento;
 		static int numFileira;
 
@@ -18,9 +19,10 @@ class Fileira{
 	public:
 		bool verificaDisponibilidade();
 		Assento getAssento(int id);
-
+		const int getQtdeAssentosDisponiveis();
+		char getIdFileira();
 //--------Construtores e Desrutores-----------
 	public:
-		Fileira(char);//definir parametros
+		Fileira(char, int);//definir parametros
 };
 #endif
