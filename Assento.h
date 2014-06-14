@@ -14,9 +14,11 @@ class Assento{
 		bool verificaDisponibilidade();
 		int getIdAssento();
 		void ocupaAssento();
+		void desocupaAssento();
 
 //---------Construtores e Destrutores------------------
 	public:
-		Assento(int, int); //Definir parametros
+		Assento(int idAssento , char idFileira);
+		~Assento();
 };
 #endif

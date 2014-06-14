@@ -1,16 +1,20 @@
 #ifndef FILEIRA_H
 #define FILEIRA_H
 
-#include "Assento.h"
+#include "ListaAssento.h"
+
 
 class Fileira{
 
 //--------Atributos----------------
 	private:
 		char idFileira;
-		const int qtdeAssentos;
+		int qtdeAssentos;
 		int assentosDisponiveis;
-		Assento **assento;
+		ListaAssento assento;
+		int num;
+
+	public:
 		static int numFileira;
 
 
@@ -18,11 +22,14 @@ class Fileira{
 
 	public:
 		bool verificaDisponibilidade();
-		Assento getAssento(int id);
-		const int getQtdeAssentosDisponiveis();
+		Assento *getAssento(int id);
+		int getQtdeAssentosDisponiveis();
+		void setQtdeAssentos(int qtde);
 		char getIdFileira();
+		void desocupa();
 //--------Construtores e Desrutores-----------
 	public:
-		Fileira(char, int);//definir parametros
+		Fileira(char id, int qtdAssentosFileira);//definir parametros
+		~Fileira();
 };
 #endif
