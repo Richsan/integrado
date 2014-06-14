@@ -1,7 +1,11 @@
 #ifndef SALA_H
 #define SALA_H
 
-#include "Fileira.h"
+#include "ListaFileira.h"
+#include <iostream>
+
+using namespace std;
+typedef enum { disponivel = 0, manuEquipamento, reforma, manuGeral}Estado;
 
 class Sala{
 
@@ -10,22 +14,29 @@ class Sala{
 		int numSala;
 		int capacidade;
 		int capacidadeDisponivel;
-		Fileira **fila;
+		ListaFileira fila;
 		int qtdeFileiras;
 		int assentosFileira;
+		Estado situacao;
 
 //--------Metodos----------------------
 	public:
 		int getNumSala();
+		void setNumSala(int numSala);
 		int getCapacidadeDisponivel();
 		int getCapacidade();
-		void setNumSala(int numSala);
-		Fileira getFileira(char id);
+		void setCapacidade(int qtde);
+		int getQtdeAssentosFileiras();
+		void setQtdeAssentosFileiras(int qtde);
+		Fileira *getFileira(char id);
+		void desocupaSala();
+		string getSituacao();
+		void setSituacao(Estado alteracao);
+
 //--------Construtores e Destrutores-----------------
 	public:
 
-		Sala(int num, int capacidade, int assentosFileria); //Definir parametros depois
-		//se necessario, incluir destrutor
-
+		Sala(int num, int capacidade, int assentosFileira);
+		~Sala();
 };
 #endif
