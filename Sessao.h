@@ -2,33 +2,43 @@
 #define SESSAO_H
 
 #include <iostream>
-#using std::string;
+using std::string;
+#include "Sala.h"
+#include "Horario.h"
 
 class Sessao{
 
 //---------Atributos----------------------------------
 	private:
-		//array de horarios (discutir implementacao)
-		int encerrada; //pode ser bool(a decidir)
+
+		bool encerrada;
 		int numVendido;
 		string filme;
+		Sala *sala;
+		Horario horario; //horario possui data também
 
 //-----------Metodos------------------------------------
 	public:
-		void setStatus(int encerrada); // pode ser bool no parametro(decidir)
-		int getStatus(); //retorna encerrada
-		// array getHorario(); //discutir implementacao
-		// void setHorario(array horario); //discutir implementacao
-		int getDisponivel(); //pode ser bool, nao sei bem ao certo mas deve verificar se nao esta cheia ou encerrada
+		void setStatus(bool encerrada); //altera encerrada
+		bool getStatus(); //retorna encerrada
+		Horario getHorario(); //discutir implementacao
+		void setHorario(int hora, int min);
+		void setData(int dia, int mes, int ano);
+		Data getData();
+		bool getDisponivel();
 		void setNumVendido(int numVendido);
-		string getFilme(); //retorna filme
-		void setFilme(string nomeFilme);//altera filme
+		string getFilme();
+		void setFilme(string nomeFilme);
+		Sala * getSala();
+		//void alteraSalaSessao(Sala &sal);
 
 
 //----------Construtores e Destrutores--------------------------------
 	public:
-		Sessao(); //decidir depois os parametros
-		~Sessao();//provavelmente sera necessario destruir array de horarios
+		Sessao(string filme, Sala *sal, int dia, int mes, int ano, int hora, int min);
+		Sessao(string filme, Sala *sal, int hora, int min); //Com data corrente no sistema
+		Sessao(string filme, Sala *sal); //com hora e data corrente no sistema.
+		~Sessao();
 
 };
 #endif

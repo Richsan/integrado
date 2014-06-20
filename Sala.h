@@ -5,7 +5,7 @@
 #include <iostream>
 
 using namespace std;
-typedef enum { disponivel = 0, manuEquipamento, reforma, manuGeral}Estado;
+typedef enum { disponivel = 0, manuEquipamento, reforma, manuGeral, emSessao}Estado;
 
 class Sala{
 

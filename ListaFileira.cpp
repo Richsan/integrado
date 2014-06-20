@@ -1,16 +1,22 @@
 #include "ListaFileira.h"
+#include <iostream>
+using namespace std;
 
 Fileira *ListaFileira::busca(char id){
 	No<Fileira>* temp = getCabeca();
 
+
 	while(temp != NULL)
 	{
+
 		if(temp->getElemto()->getIdFileira() == id)
 			return temp->getElemto();
+
+
 		temp = temp->getProx();
 	}
 
-	throw "Elemento nao encontrado";
+	throw "Fileira nao encontrada";
 }
 bool ListaFileira::disponivel(){
 	No<Fileira>* temp = getCabeca();
