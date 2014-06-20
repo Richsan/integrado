@@ -15,11 +15,8 @@ void Sala::setNumSala(int numSala){
 }
 Fileira *Sala::getFileira(char id){
 
-	Fileira * temporario;
-	temporario = fila.busca(id);
 
-	return temporario;
-	// lançar  exception
+	return fila.busca(id);
 }
 int Sala::getCapacidade(){
 	return capacidade;
@@ -127,7 +124,7 @@ string Sala::getSituacao(){
 	}
 }
 void Sala::setSituacao(Estado alteracao){
-	if(alteracao > 0 && alteracao < 4)
+	if(alteracao >= 0 && alteracao < 5)
 		situacao = alteracao;
 
 	else

@@ -28,8 +28,8 @@ bool Fileira::verificaDisponibilidade(){
 
 }
 Assento *Fileira::getAssento(int id){
-	Assento * busca = assento.busca(id);
-	return busca;
+	return assento.busca(id);
+
 }
 char Fileira::getIdFileira(){
 	return idFileira;

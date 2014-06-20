@@ -10,7 +10,7 @@ Assento *ListaAssento::busca(int id){
 		temp = temp->getProx();
 	}
 
-	throw "Elemento nao encontrado";
+	throw "Assento nao encontrado";
 }
 int ListaAssento::qtdeDisponivel(){
 	No<Assento>* temp = getCabeca();
