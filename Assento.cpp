@@ -1,22 +1,31 @@
 #include "Assento.h"
 
-Assento::Assento(int idAssento, char idFileira){
+Assento::Assento(char idFileira, int idAssento)
+{
+	Assento::idFileira = idFileira;
 	Assento::idAssento = idAssento;
 	Assento::disponibilidade = true;
-	Assento::idFileira = idFileira;
 }
-bool Assento::verificaDisponibilidade(){
 
+bool Assento::verificaDisponibilidade()
+{
 	return disponibilidade;
 }
-void Assento::ocupaAssento(){
+
+void Assento::ocuparAssento()
+{
 	disponibilidade = false;
 }
-void Assento::desocupaAssento(){
+
+void Assento::desocuparAssento()
+{
 	disponibilidade = true;
 }
-int Assento::getIdAssento(){
 
+int Assento::getIdAssento()
+{
 	return idAssento;
 }
-Assento::~Assento(){}
+char Assento::getIdFileira(){
+	return idFileira;
+}

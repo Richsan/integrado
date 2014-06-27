@@ -5,38 +5,44 @@
 #include <iostream>
 
 using namespace std;
-typedef enum { disponivel = 0, manuEquipamento, reforma, manuGeral, emSessao}Estado;
+typedef enum {disponivel = 0, manuEquipamento, reforma, manuGeral} Situacao;
 
-class Sala{
-
+class Sala
+{
 //--------Atributos-------------------
-	private:
-		int numSala;
-		int capacidade;
-		int capacidadeDisponivel;
-		ListaFileira fila;
-		int qtdeFileiras;
-		int assentosFileira;
-		Estado situacao;
+private:
+	Situacao situacao;
+	int numSala;
+	int capacidade;
+	ListaFileira listaFileiras;
 
-//--------Metodos----------------------
-	public:
-		int getNumSala();
-		void setNumSala(int numSala);
-		int getCapacidadeDisponivel();
-		int getCapacidade();
-		void setCapacidade(int qtde);
-		int getQtdeAssentosFileiras();
-		void setQtdeAssentosFileiras(int qtde);
-		Fileira *getFileira(char id);
-		void desocupaSala();
-		string getSituacao();
-		void setSituacao(Estado alteracao);
 
-//--------Construtores e Destrutores-----------------
-	public:
 
-		Sala(int num, int capacidade, int assentosFileira);
-		~Sala();
+public:
+	Sala(int num);
+	~Sala();
+
+	int getNumSala();
+	void setNumSala(int numSala);
+
+	int getCapacidade();
+	void setCapacidade(int novaCap);//talvez tornar privado
+
+	Situacao getSituacao();
+	void setSituacao(Situacao alteracao);
+
+	int getQtdFileiras();
+
+	void addFileirasComAssentos(int qtdeFileiras, int assentosPorFileira);
+	void removeFileira(char fileira); // TO DO
+
+	int getQtdAssentosNaFileira(char fileira);
+	void setQtdeAssentosNaFileira(char fileira, int novaQtde);
+
+	bool verificaDispAssento(char fileira, int assento);
+
+	void ocuparAssento(char fileira, int assento);
+	void desocuparAssento(char fileira, int assento);
 };
+
 #endif

@@ -6,7 +6,7 @@ int Horario::getHora(){
 }
 
 void Horario::setHora(int hora){
-	if(hora > 0 && hora < 12)
+	if(hora >= 0 && hora < 24)
 		Horario::hora = hora;
 	else
 		throw "Hora inválida";
@@ -18,7 +18,7 @@ int Horario::getMinuto(){
 }
 
 void Horario::setMinuto(int minuto){
-	if(minuto > 0 && minuto < 60)
+	if(minuto >= 0 && minuto < 60)
 		Horario::minuto = minuto;
 	else
 		throw "Minuto inválido";
@@ -32,13 +32,17 @@ void Horario::imprimeComData(){
 	cout << " ";
 	Horario::imprime();
 }
-Horario::Horario(int hora, int minuto, int dia, int mes, int ano):
-	Data(dia, mes, ano), hora(hora), minuto(minuto)
-{}
+Horario::Horario(int hora, int minuto, int dia, int mes, int ano) : Data(dia, mes, ano)
+{
+	setHora(hora);
+	setMinuto(minuto);
+}
 
-Horario::Horario(int hora, int minuto):
-	Data(), hora(hora), minuto(minuto)
-{}
+Horario::Horario(int hora, int minuto) : Data()
+{
+	setHora(hora);
+	setMinuto(minuto);
+}
 Horario::Horario():
 	Data()
 {

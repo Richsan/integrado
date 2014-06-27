@@ -1,0 +1,52 @@
+---Lugares que tem que ter apontador pra outra classe mas não pode alterá-la: como fazer?
+	- Ingresso -> Sessao -- só pode conhecer caso Venda::emitirIngresso() acesse o horário e sala por aqui; caso contrário, pra que serve a relaçao "relativo"?
+	- Ingresso -> Assento -- pra que conhece? Venda::emitirIngresso() / ou / Venda::addIngresso() muda disponibilidade de assento através de Ingresso ou Sessao>Sala ?
+	- Venda -> Sessao? (só setNumVendido()? talvez tambem atualize a disponibilidade de assento. mas não deve poder mudar os outros sets() de sessao)
+
+
+
+Listas
+	Construtor de cópia.
+
+ListaFileira
+	Correto.
+
+ListaAssento
+	Correto.
+
+ListaSala
+	Correto.
+
+ListaIngresso
+	Correto.
+
+
+
+
+
+Sessao
+	Correto.
+
+Sala
+	Construtor de cópia.
+
+Fileira
+	Construtor de cópia.
+
+Assento
+	Correto.
+
+Ingresso
+	Correto.
+
+
+Venda
+	
+
+
+Data
+	Correto
+
+Horario
+	Correto
+

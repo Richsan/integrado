@@ -1,0 +1,105 @@
+"1. Sala"
+
+	"1. Cadastrar Sala"
+		"Informe número da sala" (uma vez)
+			>cria sala temporaria
+
+		>imprime sala (e reimprime a cada mudança)
+
+			"Adicionar fileira(s)"
+				"Quantidade de fileiras:"
+				"Quantidade de assentos por fileira"
+
+			"Excluir fileira da sala"
+				>pede letra e exclui
+				>clear screen e reexibe sala
+
+			"Alterar número de assentos da fileira"
+				>pede letra e muda qtd
+
+			"Confirmar"
+
+	"2. Editar Sala"
+		>Lista salas existentes
+		"Informe o número da sala"
+
+			>imprime sala (e reimprime a cada mudança)
+
+			"Alterar número de assentos da fileira"
+				>pede letra e nova qtd, muda qtd
+
+			"Excluir fileira da sala"
+				>pede letra e exclui
+
+			"Alterar a Situacao da Sala"
+				>pede nova situação
+
+			"Excluir Sala"
+
+			"Editar outra sala"
+
+			"Voltar ao menu Sala"
+
+	"3. Voltar ao Menu Principal
+
+"2. Sessao"
+
+		"Listar sessoes"
+
+		"Cadastrar Sessao"
+			>sala
+			>horario de inicio
+			>horario de fim
+			>filme
+
+			>percorrer lista de sessoes
+				>se sessao atual.sala.num == salaInformada
+					>adiciona ponteiro p/ sessao atual ordenado por horario de inicio numa lista<Sessao*>
+			
+			>for(i = 0; hInicio < v[i].hFim; i++) // TRATAR VAZIO ANTES DA PRIMEIRA SESSAO E DEPOIS DA ÚLTIMA (v[0] e v[fim] = especial?) 
+			
+			>if(hInicio < v[i+1].i)
+				adicionar sesao
+			>else
+				erro
+
+		"Excluir sessao"
+			>pedir codigo
+
+		"Voltar ao Menu Principal"
+
+"3. Venda"
+
+	"Nova venda"
+		>Listar Sessoes Disponiveis (não apaga / reimprime sempre)
+		>Listar ingressos atualmente adicionados
+
+		"Novo ingresso"
+			>Meia ou inteira
+
+			>Sessao Desejada
+				>imprimir assentos disponiveis
+
+				>Assento a ser comprado (fileira e assento)
+					>se já está vendido dá erro
+					>else já muda pra vendido
+
+		"Remover ingresso"
+			>voltar assento do ingresso para disponivel antes de apagar
+
+		"Calcular Valor Total"
+			>Venda::calcularValorTotal()
+
+		"Confirmar Compra"
+			>Venda::emitirIngressos()
+
+		"Cancelar Compra"
+			>voltar todos os assentos dos ingressos para disponivel antes de destruir array
+
+		"Voltar ao menu Venda"
+
+
+	"Voltar ao Menu Principal"
+
+"4. Sair"
+

@@ -5,21 +5,13 @@
 #include "Assento.h"
 
 
-class ListaAssento: public Lista<Assento>{
+class ListaAssento: public Lista<Assento>
+{
+public:
+	ListaAssento();
+	~ListaAssento();
 
-//--------------Metodos---------------------------------
-
-	public:
-		Assento *busca(int id);
-		int qtdeDisponivel();
-		int getQtdeAssentos();
-		void desocupaAssentos();
-
-//-------------Construtor e Destrutor--------------------
-
-	public:
-		ListaAssento();
-		~ListaAssento();
-
+	Assento *busca(int id);
 };
+
 #endif

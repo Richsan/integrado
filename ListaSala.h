@@ -10,6 +10,7 @@ class ListaSala: public Lista<Sala>{
 
 	public:
 		Sala *busca(int num);
+		void removerSala(int num);
 
 //-------------Construtor e Destrutor--------------------
 

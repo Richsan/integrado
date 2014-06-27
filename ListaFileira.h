@@ -5,23 +5,17 @@
 #include "Fileira.h"
 
 
-class ListaFileira: public Lista<Fileira>{
+class ListaFileira: public Lista<Fileira>
+{
+public:
+	ListaFileira();
+	~ListaFileira();
 
-//------------Metodos-------------------------
-	public:
-		Fileira *busca(char id);
-		bool disponivel();
-		int qtdeFileiraDisponivel();
-		int qtdeAssentoDisponivel();
-		void setQtdeAssentos(int qtde);
-		void desocupaFileiras();
+	void removeFileira(char id);
+	int getQtdeAssentos();
+	int getQtdeFileiras();
 
-
-//-------------Construtor e Destrutor--------------
-	public:
-		ListaFileira();
-		~ListaFileira();
-
+	Fileira *busca(char id);
 };
 
 #endif

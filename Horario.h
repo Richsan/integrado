@@ -17,7 +17,7 @@ class Horario: public Data{
 		int getMinuto();
 		void setMinuto(int minuto);
 		void imprime(); //imprime horario no formato h:m
-		 void imprimeComData();//imprime Data e horario no formato d/m/a h:m
+		void imprimeComData();//imprime Data e horario no formato d/m/a h:m
 
 //----------Construtores e Destrutores--------------------------------
 	public:

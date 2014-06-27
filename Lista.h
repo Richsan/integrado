@@ -58,6 +58,9 @@ class Lista{
 		No<Tipo> * getCabeca(){
 			return Lista::cabeca;
 		}
+		void setCabeca(No<Tipo> * no){
+			Lista::cabeca = no;
+		}
 
 		void insere(Tipo *elemento){
 			No<Tipo>* temp = cabeca;

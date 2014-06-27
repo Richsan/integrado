@@ -1,50 +1,53 @@
 #include "Fileira.h"
 
-int Fileira::numFileira = -1;
-
-Fileira::Fileira(char id, int qtdAssentosFileira): qtdeAssentos(qtdAssentosFileira), idFileira(id){
-	numFileira++;
-	num = numFileira;
+Fileira::Fileira(char id, int qtdAssentosFileira): idFileira(id), qtdeAssentos(qtdAssentosFileira)
+{
 	Assento *temporario;
 
-	for(int i= 0; i < qtdeAssentos; i++)
+	for(int i = 0; i < qtdeAssentos; i++)
 	{
-		temporario = new Assento(qtdeAssentos* numFileira + i + 1,idFileira);
-		assento.insere(temporario);
+		temporario = new Assento(idFileira, i + 1);
+		listaAssentos.insere(temporario);
 	}
 }
-int Fileira::getQtdeAssentosDisponiveis(){
-	assentosDisponiveis = assento.qtdeDisponivel();
 
-	return assentosDisponiveis;
+Fileira::~Fileira(){}
+
+bool Fileira::verificaDispAssento(int assento)
+{
+	return listaAssentos.busca(assento)->verificaDisponibilidade();
 }
-bool Fileira::verificaDisponibilidade(){
 
-		if(getQtdeAssentosDisponiveis() > 0)
-			return true;
-
-	return false;
-
-
+void Fileira::ocuparAssento(int num)
+{
+	listaAssentos.busca(num)->ocuparAssento();
 }
-Assento *Fileira::getAssento(int id){
-	return assento.busca(id);
 
+void Fileira::desocuparAssento(int num)
+{
+	listaAssentos.busca(num)->desocuparAssento();
 }
+
 char Fileira::getIdFileira(){
 	return idFileira;
 }
-void Fileira::setQtdeAssentos(int qtde){
-	int diferenca = qtde - qtdeAssentos;
+
+int Fileira::getQtdeAssentos()
+{
+	listaAssentos.qtdeElementos();
+}
+
+void Fileira::setQtdeAssentos(int novaQtde){
+	int diferenca = novaQtde - qtdeAssentos;
 
 
 	if(diferenca > 0)
 	{
 		Assento *temporario;
-		for(int i = 0; i < diferenca; i++)
+		for(int i = 0; i < diferenca + qtdeAssentos; i++)
 		{
-			temporario = new Assento(qtdeAssentos * num + qtdeAssentos + i + 1,idFileira);
-			assento.insere(temporario);
+			temporario = new Assento(idFileira, i + 1);
+			listaAssentos.insere(temporario);
 		}
 	}
 
@@ -53,12 +56,8 @@ void Fileira::setQtdeAssentos(int qtde){
 		diferenca = -1 * diferenca;
 
 		for(int i = 0; i < diferenca; i++)
-			assento.remove();
+			listaAssentos.remove();
 	}
 
-	qtdeAssentos = qtde;
+	qtdeAssentos = novaQtde;
 }
-void Fileira::desocupa(){
-	assento.desocupaAssentos();
-}
-Fileira::~Fileira(){}

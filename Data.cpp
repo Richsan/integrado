@@ -41,27 +41,9 @@ void Data::imprime(){
 
 Data::Data(int dia, int mes, int ano)
 {
-	if(dia > 0 && dia < 32)
-		Data::dia = dia;
-	else
-	{
-		cout << "Dia invalido" << endl;
-		throw "Dia inválido";
-	}
-	if(mes > 0 && mes < 13)
-		Data::mes = mes;
-	else
-	{
-		cout << "Mes inválido" << endl;
-		throw "Mês inválido";
-
-	}
-	if(ano > 0)
-		Data::ano = ano;
-	else
-	{	cout << "Ano inválido" << endl;
-		throw "Ano inválido";
-	}
+	setDia(dia);
+	setMes(mes);
+	setAno(ano);
 }
 
 Data::Data(){

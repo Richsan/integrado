@@ -1,24 +1,23 @@
 #ifndef ASSENTO_H
 #define ASSENTO_H
 
-class Assento{
+class Assento
+{
+private:
+	char idFileira;
+	int idAssento;
+	bool disponibilidade;
 
-//---------Atributos-----------------
-	private:
-		int idAssento;
-		bool disponibilidade;
-		char idFileira;
+public:
+	Assento(char idFileira, int idAssento);
 
-//---------Metodos----------------------
-	public:
-		bool verificaDisponibilidade();
-		int getIdAssento();
-		void ocupaAssento();
-		void desocupaAssento();
+	int getIdAssento();
+	char getIdFileira();
 
-//---------Construtores e Destrutores------------------
-	public:
-		Assento(int idAssento , char idFileira);
-		~Assento();
+	bool verificaDisponibilidade();
+
+	void ocuparAssento();
+	void desocuparAssento();
 };
+
 #endif
